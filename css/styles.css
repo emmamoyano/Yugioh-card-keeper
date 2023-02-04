@@ -1,0 +1,78 @@
+.cartasYugi{
+    width: 100%;
+    height: 100%;
+}
+h3{
+  text-align: center;
+}
+.cartasYugi2{
+  width: 100%;
+  height: 100%;
+}
+.imgNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+.imgNav img {
+  height: 90px;
+}
+/* td {
+  width: 100%;
+}
+.divCompleto{
+  width: 100%;
+  height: 100%;
+} */
+
+/* body {
+  background-color: brown;
+} */
+
+/* .cartasYugi:hover{
+    width: 150%;
+} */
+
+/* .prueba{
+    overflow-y: auto;
+    max-height: calc(47px * 5);
+} */
+
+img.alineadoTextoImagenArriba{
+    vertical-align: text-top;  
+  }
+  img.alineadoTextoImagenCentro{
+    vertical-align: middle;
+    /* Ojo vertical-align: text-middle no existe*/
+  }
+  img.alineadoTextoImagenAbajo{
+    vertical-align: text-bottom;  
+  }
+
+
+#alinearAlaDerecha {
+  display: flex;
+}
+
+.CCS {
+  padding: 5px;
+  justify-content: space-between;
+  /* margin-left: 10px; */
+  display: flex;
+    justify-content: center;
+}
+
+.contador{
+  width: 3em;
+}
+.tdTabla {
+    width: 50px;
+    
+}
+.cartasYugiTable{
+  width: 50px;
+  display: block
+}
+/* .tdTabla{
+  width: 5%;
+} */

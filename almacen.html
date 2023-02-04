@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartas locales</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav imgNav">
+            <a class="nav-item nav-link" href="index.html"><img src="img/yugiii.jpg" alt=""></a>
+            <a class="nav-item nav-link" href="almacen.html"><img src="img/coleccion.jpg" alt=""></a>
+            <a class="nav-item nav-link" href="historial.html"><img src="img/vendidas.jpg" alt=""></a>
+            <a class="nav-item nav-link" href="instrucciones.html">Instrucciones</a>
+            <!-- <a class="nav-item nav-link" href="probando.html">Probando</a> -->
+          </div>
+        </div>
+      </nav>
+      <!-- <button id="comodin" hidden value="5"> </button> -->
+      <br>
+      <h3 class="CCS">Mi colección</h3>
+      <div class="CCS">
+        <span>
+          <input type="search" id="buscadorNombre2" placeholder="Busca por nombre" class="search3">
+          <button type="button" id="enter3">Buscar</button>
+          <input type="search" id="buscadorDescripcion2" placeholder="Busca por descripción" class="search4">
+          <button type="button" id="enter4">Buscar</button>
+          <input type="search" id="buscadorCodigo2" placeholder="Busca por código" class="search5">
+          <button type="button" id="enter5">Buscar</button>
+        </span>
+      </div>
+      <div class="CCS">
+
+        <span>
+            <button type="button" class="btn btn-outline-secondary" id="botonTodas">Todas</button>
+            <button type="button" class="btn btn-outline-secondary" id="botonCaja">Caja</button>
+            <button type="button" class="btn btn-outline-secondary" id="botonCarpeta">Carpeta</button>
+            <button type="button" class="btn btn-outline-secondary" id="botonSets">Sets</button>
+            <button type="button" class="btn btn-outline-secondary" id="botonArquetipo">Arquetipos</button>
+    
+                <button type="button" class="btn btn-outline-secondary" id="abc">ABC</button>
+                <button type="button" class="btn btn-outline-secondary" id="zyx">ZYX</button>
+                <button type="button" class="btn btn-outline-secondary" id="descargarExcel">Descargar en excel</button>
+                <input type="file" id="file-input">
+                <button type="button" id="actualizarDatos">Actualizar datos</button>
+              </span>
+      </div>
+        <div id="contenedor3">
+            
+    
+      <table class="table table-striped table-dark" style="width: 100%;" id="contenedor2" class="contenedor2">
+          <br>
+        <thead id="theadGuardados" hidden>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">IMG</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Rareza</th>
+            <th scope="col">Código</th>
+            <th scope="col">Set de carta</th>
+            <th scope="col" id="tablaBorrarTexto">Borrar</th>
+          </tr>
+        </thead>
+        <tbody id="myBodyAlmacen">
+          
+        </tbody>   
+        
+        
+    </table>
+  </div>   
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" ></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" ></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.1/xlsx.core.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" ></script>
+    <!-- <script src="//cdn.datatables.net/plug-ins/1.13.1/api/page.jumpToData().js"></script> -->
+      <script src="/js/almacen.js"></script>
+    <script src="/js/init.js"></script> 
+</body>
+</html>
