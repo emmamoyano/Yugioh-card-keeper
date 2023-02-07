@@ -180,21 +180,24 @@ let aGuardar = aGuardarSelect.value; // obtiene el valor del select
         console.log(caja)
         console.log('caja')
         addDataCaja(caja)
-        }
+      }
+      alert('Añadido a caja')
       } else if (aGuardar === "carpeta") {
         for (let i = 0; i < repeatCount; i++) {
         carpeta.push(filteredCardSet);
         console.log(carpeta)
         console.log('carpeta')
         addDataCarpeta(carpeta)
-        }
+      }
+      alert('Añadido a carpeta')
       } else if (aGuardar === "set") {
         for (let i = 0; i < repeatCount; i++) {
         sets.push(filteredCardSet);
         console.log(sets)
         console.log('sets')
         addDataSets(sets)
-        }
+      }
+      alert('Añadido a sets')
         // alert('Guardado en: sets')
       } else if (aGuardar === "arquetipo") {
         for (let i = 0; i < repeatCount; i++) {
@@ -202,7 +205,8 @@ let aGuardar = aGuardarSelect.value; // obtiene el valor del select
         console.log(arquetipo)
         console.log('arquetipo')
         addDataArquetipo(arquetipo)
-        }
+      }
+      alert('Añadido a arquetipo')
       }
     }
   }
@@ -407,6 +411,15 @@ document.addEventListener("DOMContentLoaded", function(e){
             cartasGuardadas = cartasGuardadas.concat(hola)
           }
         })
+        document.getElementById("buscadorNombre").addEventListener("focus", function() {
+          this.select();
+        });
+        document.getElementById("buscadorDescripcion").addEventListener("focus", function() {
+          this.select();
+        });
+        document.getElementById("buscadorCodigo").addEventListener("focus", function() {
+          this.select();
+        });
         document.getElementById('enter').addEventListener('click', ()=>{
           if (document.getElementById('buscadorNombre').value !== ""){
             $("div").remove( ".borrar" );

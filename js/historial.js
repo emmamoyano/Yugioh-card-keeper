@@ -155,6 +155,15 @@ closeButton.addEventListener('click', function() {
     document.getElementById('buscadorRarezaTabla').addEventListener('input', ()=>{
         filtradorRareza(indexedHistorial)
     })
+    document.getElementById("buscadorNombreTabla").addEventListener("focus", function() {
+      this.select();
+    });
+    document.getElementById("buscadorCodigoTabla").addEventListener("focus", function() {
+      this.select();
+    });
+    document.getElementById("buscadorRarezaTabla").addEventListener("focus", function() {
+      this.select();
+    });
     document.getElementById("contenedor3").addEventListener("click", deleteHistorial);
   })
 

@@ -276,118 +276,298 @@ const deleteKeyArquetipo = (key) => {
       };
     });
   }
-
-  function showCards(array){
-    let htmlcontenttoAppend = ""
-    // let añadir = ""
-    for(i = 0; i < array.length; i++){
-      htmlcontenttoAppend += `
-      <tr>
-        <th scope="row">${i + 1}</th>
-        <td class="tdTabla"><img class="cartasYugiTable" src="${array[i].card_images[0].image_url}"></td>
-        <td>${array[i].name}</td>
-        <td>${array[i].card_sets[0].set_rarity}</td>
-        <td>${array[i].card_sets[0].set_code}</td>
-        <td>${array[i].card_sets[0].set_name}</td>
-        <td><button type="button" class="botonPrueba3 btn btn-warning" data-key="${array[i].key}" name="borrar">Vender carta</button></td>
+// esta es la funcion showCards que anda
+//   function showCards(array){
+//     let htmlcontenttoAppend = ""
+//     // let añadir = ""
+//     for(i = 0; i < array.length; i++){
+//       htmlcontenttoAppend += `
+//       <tr>
+//         <th scope="row">${i + 1}</th>
+//         <td class="tdTabla"><img class="cartasYugiTable" src="${array[i].card_images[0].image_url}"></td>
+//         <td>${array[i].name}</td>
+//         <td>${array[i].card_sets[0].set_rarity}</td>
+//         <td>${array[i].card_sets[0].set_code}</td>
+//         <td>${array[i].card_sets[0].set_name}</td>
+//         <td><button type="button" class="botonPrueba3 btn btn-warning" data-key="${array[i].key}" name="borrar">Vender carta</button></td>
         
-        </tr>
+//         </tr>
 
-        <div class="modal fade modalImg" tabindex="-1" role="dialog" aria-labelledby="modalImgLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-              <div class="modal-body">
-                <img class="img-fluid">
-              </div>
+//         <div class="modal fade modalImg" tabindex="-1" role="dialog" aria-labelledby="modalImgLabel" aria-hidden="true">
+//           <div class="modal-dialog">
+//             <div class="modal-content bg-dark">
+//               <div class="modal-body">
+//                 <img class="img-fluid">
+//               </div>
               
-                <button type="button" class="btn btn-secondary close" data-dismiss="modal">Cerrar</button>
+//                 <button type="button" class="btn btn-secondary close" data-dismiss="modal">Cerrar</button>
               
-            </div>
-          </div>
-        </div>
-        `
-        // <p onclick="${cartasGuardadas.push(array[i])}"> </p>
-        // ${setId(array[i].name)}
-      }
+//             </div>
+//           </div>
+//         </div>
+//         `
+//         // <p onclick="${cartasGuardadas.push(array[i])}"> </p>
+//         // ${setId(array[i].name)}
+//       }
       
-      document.getElementById('myBodyAlmacen').innerHTML = htmlcontenttoAppend;
-      let imgs = document.getElementsByClassName('cartasYugiTable');
-for (let i = 0; i < imgs.length; i++) {
+//       document.getElementById('myBodyAlmacen').innerHTML = htmlcontenttoAppend;
+//       let imgs = document.getElementsByClassName('cartasYugiTable');
+// for (let i = 0; i < imgs.length; i++) {
+//     imgs[i].addEventListener('click', function() {
+//       document.getElementsByClassName("modalImg")[0].classList.remove("d-none");
+//         document.getElementsByClassName("modalImg")[0].classList.add("d-block", "show");
+//         document.getElementsByClassName('img-fluid')[0].src=this.src;
+//     });
+// }
+// let closeButton = document.getElementsByClassName("close")[0];
+// closeButton.addEventListener('click', function() {
+//   document.getElementsByClassName("modalImg")[0].classList.remove("d-block", "show");
+//   document.getElementsByClassName("modalImg")[0].classList.add("d-none");
+// });
+//               let borro = document.getElementsByClassName('botonPrueba3');
+//               for (let i=0; i< array.length; i++){
+//                   borro[i].addEventListener('click',()=>{
+//                     eliminar(array[i]);
+//                   })
+//                 }
+// } 
+
+//este showCards se fija en card_name para hacer el contador, necesito que se fije en set_Rarity y set_code
+// function showCards(array) {
+//   let htmlcontenttoAppend = "";
+//   let cardMap = {};
+//   for (let i = 0; i < array.length; i++) {
+//     let card = array[i];
+//     if (!cardMap[card.name]) {
+//       cardMap[card.name] = {
+//         card: card,
+//         count: 1
+//       };
+//     } else {
+//       cardMap[card.name].count++;
+//     }
+//   }
+
+//   for (let cardName in cardMap) {
+//     let cardData = cardMap[cardName];
+//     htmlcontenttoAppend += `
+//       <tr>
+//         <th scope="row">${cardData.count}</th>
+//         <td class="tdTabla"><img class="cartasYugiTable" src="${cardData.card.card_images[0].image_url}"></td>
+//         <td>${cardData.card.name}</td>
+//         <td>${cardData.card.card_sets[0].set_rarity}</td>
+//         <td>${cardData.card.card_sets[0].set_code}</td>
+//         <td>${cardData.card.card_sets[0].set_name}</td>
+//         <td><button type="button" class="botonPrueba3 btn btn-warning" data-key="${cardData.card.key}" name="borrar">Vender carta</button></td>
+//       </tr>
+//       <div class="modal fade modalImg" tabindex="-1" role="dialog" aria-labelledby="modalImgLabel" aria-hidden="true">
+//         <div class="modal-dialog">
+//           <div class="modal-content bg-dark">
+//             <div class="modal-body">
+//               <img class="img-fluid">
+//             </div>
+//             <button type="button" class="btn btn-secondary close" data-dismiss="modal">Cerrar</button>
+//           </div>
+//         </div>
+//       </div>
+//     `;
+//   }
+
+//   document.getElementById('myBodyAlmacen').innerHTML = htmlcontenttoAppend;
+//   let imgs = document.getElementsByClassName('cartasYugiTable');
+//   for (let i = 0; i < imgs.length; i++) {
+//     imgs[i].addEventListener('click', function() {
+//       document.getElementsByClassName("modalImg")[0].classList.remove("d-none");
+//       document.getElementsByClassName("modalImg")[0].classList.add("d-block", "show");
+//       document.getElementsByClassName('img-fluid')[0].src = this.src;
+//     });
+//   }
+//   let closeButton = document.getElementsByClassName("close")[0];
+// closeButton.addEventListener('click', function() {
+//   document.getElementsByClassName("modalImg")[0].classList.remove("d-block", "show");
+//   document.getElementsByClassName("modalImg")[0].classList.add("d-none");
+// });
+//               let borro = document.getElementsByClassName('botonPrueba3');
+//               for (let i=0; i< array.length; i++){
+//                   borro[i].addEventListener('click',()=>{
+//                     eliminar(array[i]);
+//                   })
+//                 }
+// }
+function showCards(array){
+  let htmlcontenttoAppend = "";
+let uniqueCards = [];
+
+for (const card of array) {
+  let cardIsUnique = true;
+  for (const uniqueCard of uniqueCards) {
+    if (
+      card.card_sets[0].set_rarity === uniqueCard.card_sets[0].set_rarity &&
+      card.card_sets[0].set_code === uniqueCard.card_sets[0].set_code
+    ) {
+      uniqueCard.count++;
+      uniqueCard.keys.push(card.key);
+      cardIsUnique = false;
+      break;
+    }
+  }
+  if (cardIsUnique) {
+    uniqueCards.push({ ...card, count: 1, keys: [card.key] });
+  }
+}
+
+for (const uniqueCard of uniqueCards) {
+  htmlcontenttoAppend += `
+  <tr>
+    <th scope="row">${uniqueCard.count}</th>
+    <td class="tdTabla"><img class="cartasYugiTable" src="${
+      uniqueCard.card_images[0].image_url
+    }"></td>
+    <td>${uniqueCard.name}</td>
+    <td>${uniqueCard.card_sets[0].set_rarity}</td>
+    <td>${uniqueCard.card_sets[0].set_code}</td>
+    <td>${uniqueCard.card_sets[0].set_name}</td>
+    <td><button type="button" class="botonPrueba3 btn btn-warning" data-keys='${JSON.stringify(
+      uniqueCard.keys
+    )}' name="borrar">Vender carta</button></td>
+  </tr>
+
+  <div class="modal fade modalImg" tabindex="-1" role="dialog" aria-labelledby="modalImgLabel" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content bg-dark">
+             <div class="modal-body">
+               <img class="img-fluid">
+             </div>
+             <button type="button" class="btn btn-secondary close" data-dismiss="modal">Cerrar</button>
+           </div>
+         </div>
+       </div>
+  `;
+}
+document.getElementById("myBodyAlmacen").innerHTML = htmlcontenttoAppend;
+let imgs = document.getElementsByClassName('cartasYugiTable');
+  for (let i = 0; i < imgs.length; i++) {
     imgs[i].addEventListener('click', function() {
       document.getElementsByClassName("modalImg")[0].classList.remove("d-none");
-        document.getElementsByClassName("modalImg")[0].classList.add("d-block", "show");
-        document.getElementsByClassName('img-fluid')[0].src=this.src;
+      document.getElementsByClassName("modalImg")[0].classList.add("d-block", "show");
+      document.getElementsByClassName('img-fluid')[0].src = this.src;
     });
-}
-let closeButton = document.getElementsByClassName("close")[0];
+  }
+  let closeButton = document.getElementsByClassName("close")[0];
 closeButton.addEventListener('click', function() {
   document.getElementsByClassName("modalImg")[0].classList.remove("d-block", "show");
   document.getElementsByClassName("modalImg")[0].classList.add("d-none");
 });
-    // let span = document.getElementsByClassName("close")[0];
-    // span.onclick = function() {
-    //     document.getElementById("modalImg").classList.remove("d-block", "show");
-    //     document.getElementById("modalImg").classList.add("d-none");
-    // }
-      // for (let i=0; i< array.length; i++){
-                //   borro[i].addEventListener('click',()=>{
-                  //       eliminar(i);
-                  //   })
-              let borro = document.getElementsByClassName('botonPrueba3');
-              for (let i=0; i< array.length; i++){
-                  borro[i].addEventListener('click',()=>{
-                    eliminar(array[i]);
-                  })
-                }
-            } 
-            function showCardsTodas(array){
-              let htmlcontenttoAppend = ""
-              // let añadir = ""
-              for(i = 0; i < array.length; i++){
-                htmlcontenttoAppend += `
-                <tr>
-                  <th scope="row">${i + 1}</th>
-                  <td class="tdTabla"><img class="cartasYugiTable" src="${array[i].card_images[0].image_url}"></td>
-                  <td>${array[i].name}</td>
-                  <td>${array[i].card_sets[0].set_rarity}</td>
-                  <td>${array[i].card_sets[0].set_code}</td>
-                  <td>${array[i].card_sets[0].set_name}</td>
-                  <td>${array[i].sitio}</td>
+}
+      
+  //   function showCardsTodas(array){
+  //             let htmlcontenttoAppend = ""
+  //             // let añadir = ""
+  //             for(i = 0; i < array.length; i++){
+  //               htmlcontenttoAppend += `
+  //               <tr>
+  //                 <th scope="row">${i + 1}</th>
+  //                 <td class="tdTabla"><img class="cartasYugiTable" src="${array[i].card_images[0].image_url}"></td>
+  //                 <td>${array[i].name}</td>
+  //                 <td>${array[i].card_sets[0].set_rarity}</td>
+  //                 <td>${array[i].card_sets[0].set_code}</td>
+  //                 <td>${array[i].card_sets[0].set_name}</td>
+  //                 <td>${array[i].sitio}</td>
                   
-                  </tr>
+  //                 </tr>
           
-                  <div class="modal fade modalImg" tabindex="-1" role="dialog" aria-labelledby="modalImgLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content bg-dark">
-                        <div class="modal-body">
+  //                 <div class="modal fade modalImg" tabindex="-1" role="dialog" aria-labelledby="modalImgLabel" aria-hidden="true">
+  //                   <div class="modal-dialog">
+  //                     <div class="modal-content bg-dark">
+  //                       <div class="modal-body">
+  //                         <img class="img-fluid">
+  //                       </div>
+                       
+  //                         <button type="button" class="btn btn-secondary close" data-dismiss="modal">Cerrar</button>
+                       
+  //                     </div>
+  //                   </div>
+  //                 </div>
+  //                 `
+  //                 // <p onclick="${cartasGuardadas.push(array[i])}"> </p>
+  //                 // ${setId(array[i].name)}
+  //               }
+                
+  //               document.getElementById('myBodyAlmacen').innerHTML = htmlcontenttoAppend;
+  //               let imgs = document.getElementsByClassName('cartasYugiTable');
+  //         for (let i = 0; i < imgs.length; i++) {
+  //             imgs[i].addEventListener('click', function() {
+  //               document.getElementsByClassName("modalImg")[0].classList.remove("d-none");
+  //                 document.getElementsByClassName("modalImg")[0].classList.add("d-block", "show");
+  //                 document.getElementsByClassName('img-fluid')[0].src=this.src;
+  //             });
+  //         }
+  //         let closeButton = document.getElementsByClassName("close")[0];
+  //         closeButton.addEventListener('click', function() {
+  //           document.getElementsByClassName("modalImg")[0].classList.remove("d-block", "show");
+  //           document.getElementsByClassName("modalImg")[0].classList.add("d-none");
+  //         });
+  //  } 
+  function showCardsTodas(array){
+    let htmlcontenttoAppend = ""
+    let uniqueCards = [];
+
+    for (const card of array) {
+        let cardIsUnique = true;
+        for (const uniqueCard of uniqueCards) {
+            if (card.card_sets[0].set_rarity === uniqueCard.card_sets[0].set_rarity && card.card_sets[0].set_code === uniqueCard.card_sets[0].set_code && card.sitio === uniqueCard.sitio) {
+                uniqueCard.count++;
+                cardIsUnique = false;
+                break;
+            }
+        }
+        if (cardIsUnique) {
+            uniqueCards.push({...card, count: 1});
+        }
+    }
+
+    for (const uniqueCard of uniqueCards) {
+        htmlcontenttoAppend += `
+        <tr>
+          <th scope="row">${uniqueCard.count}</th>
+          <td class="tdTabla"><img class="cartasYugiTable" src="${uniqueCard.card_images[0].image_url}"></td>
+          <td>${uniqueCard.name}</td>
+          <td>${uniqueCard.card_sets[0].set_rarity}</td>
+          <td>${uniqueCard.card_sets[0].set_code}</td>
+          <td>${uniqueCard.card_sets[0].set_name}</td>
+          <td>${uniqueCard.sitio}</td>
+        </tr>
+
+        <div class="modal fade modalImg" tabindex="-1" role="dialog" aria-labelledby="modalImgLabel" aria-hidden="true">
+                     <div class="modal-dialog">
+                       <div class="modal-content bg-dark">
+                         <div class="modal-body">
                           <img class="img-fluid">
                         </div>
                        
-                          <button type="button" class="btn btn-secondary close" data-dismiss="modal">Cerrar</button>
+                           <button type="button" class="btn btn-secondary close" data-dismiss="modal">Cerrar</button>
                        
-                      </div>
-                    </div>
-                  </div>
-                  `
-                  // <p onclick="${cartasGuardadas.push(array[i])}"> </p>
-                  // ${setId(array[i].name)}
-                }
-                
-                document.getElementById('myBodyAlmacen').innerHTML = htmlcontenttoAppend;
-                let imgs = document.getElementsByClassName('cartasYugiTable');
-          for (let i = 0; i < imgs.length; i++) {
-              imgs[i].addEventListener('click', function() {
-                document.getElementsByClassName("modalImg")[0].classList.remove("d-none");
-                  document.getElementsByClassName("modalImg")[0].classList.add("d-block", "show");
-                  document.getElementsByClassName('img-fluid')[0].src=this.src;
-              });
-          }
-          let closeButton = document.getElementsByClassName("close")[0];
+                       </div>
+                     </div>
+                   </div>
+        `;
+    }
+
+    document.getElementById('myBodyAlmacen').innerHTML = htmlcontenttoAppend;
+    let imgs = document.getElementsByClassName('cartasYugiTable');
+    for (let i = 0; i < imgs.length; i++) {
+        imgs[i].addEventListener('click', function() {
+            document.getElementsByClassName("modalImg")[0].classList.remove("d-none");
+            document.getElementsByClassName("modalImg")[0].classList.add("d-block", "show");
+            document.getElementsByClassName('img-fluid')[0].src=this.src;
+        });
+    }
+    let closeButton = document.getElementsByClassName("close")[0];
           closeButton.addEventListener('click', function() {
             document.getElementsByClassName("modalImg")[0].classList.remove("d-block", "show");
             document.getElementsByClassName("modalImg")[0].classList.add("d-none");
           });
-   } 
+}
             let currentState;
 
 
@@ -498,41 +678,148 @@ document.getElementById('buscadorDescripcion2').addEventListener('input', ()=>{
             // datatable2()
         })  
 
+// function deleteArquetipo(e) {
+//   if (currentState !== 'arquetipo') return;
+//   if (e.target.classList.contains("botonPrueba3")) {
+//       const key = Number(e.target.dataset.key);
+//       deleteKeyArquetipo(key);
+//       const updatedIndexedArquetipo = indexedArquetipo.filter((item) => item.key !== key);
+//       indexedArquetipo = updatedIndexedArquetipo;
+//   }
+// }
 function deleteArquetipo(e) {
-  if (currentState !== 'arquetipo') return;
+  if (currentState !== "arquetipo") return;
   if (e.target.classList.contains("botonPrueba3")) {
-      const key = Number(e.target.dataset.key);
-      deleteKeyArquetipo(key);
-      const updatedIndexedArquetipo = indexedArquetipo.filter((item) => item.key !== key);
-      indexedArquetipo = updatedIndexedArquetipo;
+    const keys = JSON.parse(e.target.dataset.keys);
+    for (const key of keys) {
+      let keyDeleted = false;
+      for (const item of indexedArquetipo) {
+        if (item.key === key) {
+          const [elementoEliminado] = indexedArquetipo.filter((item) => item.key === key);
+          elementoEliminado.sitioAnterior = "arquetipo"
+          elementoEliminado.sitio = "vendidas";
+addDatavendidas([elementoEliminado]);
+indexedvendidas2.push(elementoEliminado);
+          deleteKeyArquetipo(key);
+          const updatedIndexedArquetipo = indexedArquetipo.filter((item) => item.key !== key);
+          indexedArquetipo = updatedIndexedArquetipo;
+          showCards(indexedArquetipo)
+          keyDeleted = true;
+          break;
+        }
+      }
+      if (keyDeleted) {
+        break;
+      }
+    }
   }
 }
-
+// function deleteCaja(e) {
+//   if (currentState !== 'caja') return;
+//   if (e.target.classList.contains("botonPrueba3")) {
+//       const key = Number(e.target.dataset.key);
+//       deleteKeyCaja(key);
+//       const updatedIndexedCaja = indexedCaja.filter((item) => item.key !== key);
+//       indexedCaja = updatedIndexedCaja;
+//   }
+// }
 function deleteCaja(e) {
-  if (currentState !== 'caja') return;
+  if (currentState !== "caja") return;
   if (e.target.classList.contains("botonPrueba3")) {
-      const key = Number(e.target.dataset.key);
-      deleteKeyCaja(key);
-      const updatedIndexedCaja = indexedCaja.filter((item) => item.key !== key);
-      indexedCaja = updatedIndexedCaja;
+    const keys = JSON.parse(e.target.dataset.keys);
+    for (const key of keys) {
+      let keyDeleted = false;
+      for (const item of indexedCaja) {
+        if (item.key === key) {
+          const [elementoEliminado] = indexedCaja.filter((item) => item.key === key);
+          elementoEliminado.sitioAnterior = "caja"
+          elementoEliminado.sitio = "vendidas";
+addDatavendidas([elementoEliminado]);
+indexedvendidas2.push(elementoEliminado);
+          deleteKeyCaja(key);
+          const updatedIndexedCaja = indexedCaja.filter((item) => item.key !== key);
+          indexedCaja = updatedIndexedCaja;
+          showCards(indexedCaja)
+          keyDeleted = true;
+          break;
+        }
+      }
+      if (keyDeleted) {
+        break;
+      }
+    }
   }
 }
+// function deleteCarpeta(e) {
+//   if (currentState !== 'carpeta') return;
+//   if (e.target.classList.contains("botonPrueba3")) {
+//       const key = Number(e.target.dataset.key);
+//       deleteKeyCarpeta(key);
+//       const updatedIndexedCarpeta = indexedCarpeta.filter((item) => item.key !== key);
+//       indexedCarpeta = updatedIndexedCarpeta;
+//   }
+// }
 function deleteCarpeta(e) {
-  if (currentState !== 'carpeta') return;
+  if (currentState !== "carpeta") return;
   if (e.target.classList.contains("botonPrueba3")) {
-      const key = Number(e.target.dataset.key);
-      deleteKeyCarpeta(key);
-      const updatedIndexedCarpeta = indexedCarpeta.filter((item) => item.key !== key);
-      indexedCarpeta = updatedIndexedCarpeta;
+    const keys = JSON.parse(e.target.dataset.keys);
+    for (const key of keys) {
+      let keyDeleted = false;
+      for (const item of indexedCarpeta) {
+        if (item.key === key) {
+          const [elementoEliminado] = indexedCarpeta.filter((item) => item.key === key);
+          elementoEliminado.sitioAnterior = "carpeta"
+          elementoEliminado.sitio = "vendidas";
+addDatavendidas([elementoEliminado]);
+indexedvendidas2.push(elementoEliminado);
+          deleteKeyCarpeta(key);
+          const updatedIndexedCarpeta = indexedCarpeta.filter((item) => item.key !== key);
+          indexedCarpeta = updatedIndexedCarpeta;
+          showCards(indexedCarpeta)
+          keyDeleted = true;
+          break;
+        }
+      }
+      if (keyDeleted) {
+        break;
+      }
+    }
   }
 }
+// function deleteSets(e) {
+//   if (currentState !== 'sets') return;
+//   if (e.target.classList.contains("botonPrueba3")) {
+//       const key = Number(e.target.dataset.key);
+//       deleteKeySets(key);
+//       const updatedIndexedSets = indexedSets.filter((item) => item.key !== key);
+//       indexedSets = updatedIndexedSets;
+//   }
+// }
 function deleteSets(e) {
-  if (currentState !== 'sets') return;
+  if (currentState !== "sets") return;
   if (e.target.classList.contains("botonPrueba3")) {
-      const key = Number(e.target.dataset.key);
-      deleteKeySets(key);
-      const updatedIndexedSets = indexedSets.filter((item) => item.key !== key);
-      indexedSets = updatedIndexedSets;
+    const keys = JSON.parse(e.target.dataset.keys);
+    for (const key of keys) {
+      let keyDeleted = false;
+      for (const item of indexedSets) {
+        if (item.key === key) {
+          const [elementoEliminado] = indexedSets.filter((item) => item.key === key);
+          elementoEliminado.sitioAnterior = "sets"
+          elementoEliminado.sitio = "vendidas";
+addDatavendidas([elementoEliminado]);
+indexedvendidas2.push(elementoEliminado);
+          deleteKeySets(key);
+          const updatedIndexedSets = indexedSets.filter((item) => item.key !== key);
+          indexedSets = updatedIndexedSets;
+          showCards(indexedSets)
+          keyDeleted = true;
+          break;
+        }
+      }
+      if (keyDeleted) {
+        break;
+      }
+    }
   }
 }
 function sortByName(array) {
@@ -641,30 +928,44 @@ function buscarCodigo(array) {
   //         });
   //       }
 
+  
 
-    //   function eliminar(objeto){
-    //     // let arrayvendidas = []
-    //     const sitio = objeto.sitio;
-    //     const posicion = arrayParaFiltrar.indexOf(objeto);
-    //     const elementoEliminado = arrayParaFiltrar.splice(posicion,1);
-    //     elementoEliminado.sitio = sitio;
-    //     elementoEliminado.sitioAnterior = sitio;
-    //     addDatavendidas(elementoEliminado)
-    //     indexedvendidas2.push(elementoEliminado)
-    //     showCards(arrayParaFiltrar);
-    // }
+    //esta es la funcion eliminar que hasta ahora andaba bien, voy a probar cambiar unas cosas
+  //   function eliminar(objeto) {
+  //     const {sitio} = objeto;
+  //     const posicion = arrayParaFiltrar.indexOf(objeto);
+  //     const [elementoEliminado] = arrayParaFiltrar.splice(posicion, 1);
+  //     elementoEliminado.sitioAnterior = sitio;
+  //     addDatavendidas([elementoEliminado]);
+  //     elementoEliminado.sitio = "vendidas"
+  //     indexedvendidas2.push(elementoEliminado);
 
-    function eliminar(objeto) {
-      const {sitio} = objeto;
-      const posicion = arrayParaFiltrar.indexOf(objeto);
-      const [elementoEliminado] = arrayParaFiltrar.splice(posicion, 1);
-      elementoEliminado.sitioAnterior = sitio;
-      addDatavendidas([elementoEliminado]);
-      elementoEliminado.sitio = "vendidas"
-      indexedvendidas2.push(elementoEliminado);
-
-      showCards(arrayParaFiltrar);
+  //     showCards(arrayParaFiltrar);
+  // }
+  //no elimina correctamente
+  // function eliminar(objeto) {
+  //   const posicion = arrayParaFiltrar.indexOf(objeto);
+  //   const [elementoEliminado] = arrayParaFiltrar.splice(posicion, 1);
+  //   elementoEliminado.sitioAnterior = objeto.sitio;
+  //   addDatavendidas([elementoEliminado]);
+  //   elementoEliminado.sitio = "vendidas"
+  //   indexedvendidas2.push(elementoEliminado);
+  
+  //   showCards(arrayParaFiltrar);
+  // }
+function eliminar(id) {
+  const posicion = arrayParaFiltrar.findIndex(objeto => objeto.id === id);
+  if (posicion === -1) {
+    return; // No se encontró el objeto
   }
+
+  const [elementoEliminado] = arrayParaFiltrar.splice(posicion, 1);
+  addDatavendidas([elementoEliminado]);
+  indexedvendidas2.push(elementoEliminado);
+
+  showCards(arrayParaFiltrar);
+}
+
       
     function saveFile(blob, filename){
       if (window.navigator.msSaveOrOpenBlob){
@@ -890,6 +1191,15 @@ document.addEventListener("DOMContentLoaded", function(e){
         alert('Debe cargar un archivo');
       }
     })
+    document.getElementById("buscadorNombre2").addEventListener("focus", function() {
+      this.select();
+    });
+    document.getElementById("buscadorDescripcion2").addEventListener("focus", function() {
+      this.select();
+    });
+    document.getElementById("buscadorCodigo2").addEventListener("focus", function() {
+      this.select();
+    });
     // document.getElementById('descargarExcel').addEventListener('click', () => {
     //   location.reload();
     //   createCsv();
